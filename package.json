@@ -1,0 +1,34 @@
+{
+  "name": "lerna-poc",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*/*"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.44",
+    "@babel/core": "^7.0.0-beta.44",
+    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.44",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.44",
+    "@babel/preset-env": "^7.0.0-beta.44",
+    "@babel/preset-react": "^7.0.0-beta.44",
+    "commitizen": "2.9.6",
+    "cross-env": "^5.1.4",
+    "cz-lerna-changelog": "^1.2.1",
+    "lerna": "^2.9.0",
+    "lerna-semantic-release": "9.1.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-lerna-changelog"
+    }
+  },
+  "scripts": {
+    "clean": "yarn clean:build",
+    "clean:build": "rm -rf packages/*/*/dist",
+    "build:babel": "yarn build:babel:cjs && yarn build:babel:esm",
+    "build:babel:cjs": "cross-env BABEL_ENV=production:cjs lerna exec --  babel src --out-dir dist/cjs",
+    "build:babel:esm": "cross-env BABEL_ENV=production:esm lerna exec -- babel src --out-dir dist/esm"
+  },
+  "license": "MIT"
+}
