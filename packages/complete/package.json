@@ -1,0 +1,12 @@
+{
+  "name": "@dougmiller/complete-lerna",
+  "version": "0.2.1",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@dougmiller/badge-lerna": "^0.2.0",
+    "@dougmiller/button-lerna": "^3.2.0"
+  }
+}

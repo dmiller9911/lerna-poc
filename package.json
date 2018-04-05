@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "workspaces": [
-    "packages/*/*"
+    "packages/*/*",
+    "packages/complete"
   ],
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.44",
@@ -16,7 +17,8 @@
     "cross-env": "^5.1.4",
     "cz-lerna-changelog": "^1.2.1",
     "lerna": "^2.9.0",
-    "lerna-semantic-release": "9.1.0"
+    "lerna-semantic-release": "^9.1.0",
+    "travis-deploy-once": "^4.4.1"
   },
   "config": {
     "commitizen": {
@@ -25,10 +27,13 @@
   },
   "scripts": {
     "clean": "yarn clean:build",
+    "build": "yarn clean:build && lerna run prebuild && yarn build:babel",
+    "release": "yarn build && lerna publish --conventional-commits",
+    "release:ci": "git config --global user.email $NPM_CONFIG_EMAIL && git config --global user.name $GITHUB_USERNAME && git config --global push.default simple && git checkout $TRAVIS_BRANCH && npm config set //yarn/:_authToken=$NPM_TOKEN -q && yarn build && yarn travis-deploy-once \"lerna publish --conventional-commits --yes\"",
     "clean:build": "rm -rf packages/*/*/dist",
     "build:babel": "yarn build:babel:cjs && yarn build:babel:esm",
     "build:babel:cjs": "cross-env BABEL_ENV=production:cjs lerna exec --  babel src --out-dir dist/cjs",
-    "build:babel:esm": "cross-env BABEL_ENV=production:esm lerna exec -- babel src --out-dir dist/esm"
+    "build:babel:esm": "cross-env BABEL_ENV=production:esm lerna exec --ignore @dougmiller/patternfly-codemods-lerna -- babel src --out-dir dist/esm"
   },
   "license": "MIT"
 }
