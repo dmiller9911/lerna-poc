@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="4.0.1"></a>
+## [4.0.1](https://github.com/dmiller9911/lerna-poc/compare/@dougmiller/button-lerna@4.0.0...@dougmiller/button-lerna@4.0.1) (2018-04-05)
+
+
+### Bug Fixes
+
+* **button & badge:** removed console logs to force publish ([312fcbc](https://github.com/dmiller9911/lerna-poc/commit/312fcbc))
+
+
+
+
 <a name="4.0.0"></a>
 # [4.0.0](https://github.com/dmiller9911/lerna-poc/compare/@dougmiller/button-lerna@3.2.1...@dougmiller/button-lerna@4.0.0) (2018-04-05)
 
