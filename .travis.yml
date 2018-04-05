@@ -8,6 +8,9 @@ notifications:
 node_js: '8'
 script: yarn build
 before_install: scripts/travis/before_install.sh
+install: 
+    - yarn
+    - yarn bootstrap
 after_success: scripts/travis/after_success.sh
 branches:
   except:

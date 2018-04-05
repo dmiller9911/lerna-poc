@@ -2,6 +2,18 @@
   "name": "lerna-poc",
   "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "build": "yarn clean:build && lerna run prebuild && yarn build:babel",
+    "build:babel": "yarn build:babel:cjs && yarn build:babel:esm",
+    "build:babel:cjs": "cross-env BABEL_ENV=production:cjs lerna exec --  babel src --out-dir dist/cjs",
+    "build:babel:esm": "cross-env BABEL_ENV=production:esm lerna exec --ignore @dougmiller/patternfly-codemods-lerna -- babel src --out-dir dist/esm",
+    "clean": "yarn clean:build",
+    "clean:build": "rm -rf packages/*/*/dist",
+    "gen:package": "node ./scripts/package-gen && yarn bootstrap",
+    "release": "yarn build && lerna publish --conventional-commits",
+    "release:ci": "yarn build && yarn travis-deploy-once \"lerna publish --conventional-commits --yes\""
+  },
   "workspaces": [
     "packages/*/*",
     "packages/complete"
@@ -16,24 +28,15 @@
     "commitizen": "2.9.6",
     "cross-env": "^5.1.4",
     "cz-lerna-changelog": "^1.2.1",
+    "inquirer": "^5.2.0",
     "lerna": "^2.9.0",
-    "lerna-semantic-release": "^9.1.0",
+    "node-mkdirp": "^0.0.1",
     "travis-deploy-once": "^4.4.1"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-lerna-changelog"
     }
-  },
-  "scripts": {
-    "clean": "yarn clean:build",
-    "build": "yarn clean:build && lerna run prebuild && yarn build:babel",
-    "release": "yarn build && lerna publish --conventional-commits",
-    "release:ci": "yarn build && yarn travis-deploy-once \"lerna publish --conventional-commits --yes\"",
-    "clean:build": "rm -rf packages/*/*/dist",
-    "build:babel": "yarn build:babel:cjs && yarn build:babel:esm",
-    "build:babel:cjs": "cross-env BABEL_ENV=production:cjs lerna exec --  babel src --out-dir dist/cjs",
-    "build:babel:esm": "cross-env BABEL_ENV=production:esm lerna exec --ignore @dougmiller/patternfly-codemods-lerna -- babel src --out-dir dist/esm"
   },
   "license": "MIT"
 }
