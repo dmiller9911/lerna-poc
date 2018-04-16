@@ -8,3 +8,4 @@ export { default as SingleAreaChart } from './SingleAreaChart';
 export { default as SingleLineChart } from './SingleLineChart';
 export { default as SparklineChart } from './SparklineChart';
 export { default as StackedBarChart } from './StackedBarChart';
+console.log('test');
