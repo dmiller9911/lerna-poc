@@ -1,6 +1,6 @@
 {
   "name": "@dm-lerna-poc/eslint-config-lerna-poc",
-  "version": "2.0.0",
+  "version": "2.1.1",
   "private": false,
   "main": "./index.js",
   "license": "MIT",
