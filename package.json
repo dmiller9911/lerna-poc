@@ -6,8 +6,8 @@
     "bootstrap": "lerna bootstrap",
     "build": "yarn clean:build && lerna run prebuild && yarn build:babel",
     "build:babel": "yarn build:babel:cjs && yarn build:babel:esm",
-    "build:babel:cjs": "cross-env BABEL_ENV=production:cjs lerna exec --  babel src --out-dir dist/cjs",
-    "build:babel:esm": "cross-env BABEL_ENV=production:esm lerna exec --ignore @dougmiller/patternfly-codemods-lerna -- babel src --out-dir dist/esm",
+    "build:babel:cjs": "cross-env BABEL_ENV=production:cjs lerna exec --ignore \"$(node ./scripts/getGlobPackagesForTool.js babel)\" --  babel src --out-dir cjs",
+    "build:babel:esm": "cross-env BABEL_ENV=production:esm lerna exec --ignore \"$(node ./scripts/getGlobPackagesForTool.js babel)\" -- babel src --out-dir esm",
     "clean": "yarn clean:build",
     "clean:build": "rm -rf packages/*/*/dist",
     "gen:package": "node ./scripts/package-gen && yarn bootstrap",
@@ -15,8 +15,8 @@
     "release:ci": "yarn build && yarn travis-deploy-once \"lerna publish --conventional-commits --yes\""
   },
   "workspaces": [
-    "packages/*/*",
-    "packages/complete"
+    "packages/*",
+    "packages/*/*"
   ],
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.44",
@@ -28,9 +28,11 @@
     "commitizen": "2.9.6",
     "cross-env": "^5.1.4",
     "cz-lerna-changelog": "^1.2.1",
+    "enzyme": "^3.3.0",
     "inquirer": "^5.2.0",
     "lerna": "^2.9.0",
-    "node-mkdirp": "^0.0.1",
+    "mkdirp": "^0.5.1",
+    "prettier": "^1.11.1",
     "travis-deploy-once": "^4.4.1"
   },
   "config": {

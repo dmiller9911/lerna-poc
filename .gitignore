@@ -57,5 +57,9 @@ typings/
 # dotenv environment variables file
 .env
 
+.DS_STORE
+
 package-lock\.json
 dist/
+cjs/
+esm/

@@ -1,0 +1,9 @@
+{
+  "extends": [
+    "./packages/utils/eslint-config-patternfly/index.js",
+    "./packages/utils/eslint-config-patternfly/jest.js",
+    "./packages/utils/eslint-config-patternfly/react.js",
+    "./packages/utils/eslint-config-patternfly/jsx-a11y.js",
+    "./packages/utils/eslint-config-patternfly/prettier.js"
+  ]
+}

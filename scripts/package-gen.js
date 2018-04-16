@@ -1,28 +1,69 @@
 const inquirer = require('inquirer');
 const path = require('path');
-const mkdirp = require('mkdirp');
-const fs = require('fs');
+const fs = require('./util/fs');
 const Repository = require('lerna/lib/Repository');
 const PackageUtilities = require('lerna/lib/PackageUtilities');
 
-const namespace = '@dougmiller';
+const namespace = '@dm-lerna-poc';
 
 const packageTypes = {
-  component: 'component',
-  pattern: 'pattern',
-  layout: 'layout',
-  util: 'util',
-  build: 'build tool'
+  package: 'package',
+  util: 'util'
 };
 
 const basePackageDir = path.resolve(process.cwd(), './packages');
 const pathsByPackageType = {
-  [packageTypes.component]: path.join(basePackageDir, 'components'),
-  [packageTypes.pattern]: path.join(basePackageDir, 'patterns'),
-  [packageTypes.util]: path.join(basePackageDir, 'utils'),
-  [packageTypes.layout]: path.join(basePackageDir, 'layouts'),
-  [packageTypes.build]: path.join(process.cwd(), 'build')
+  [packageTypes.package]: path.join(basePackageDir),
+  [packageTypes.util]: path.join(basePackageDir, 'utils')
 };
+
+async function createSrcDirectory(dir) {
+  const srcDir = path.join(dir, 'src');
+  await fs.createDirectory(srcDir);
+  await fs.writeFile(path.join(srcDir, 'index.js'), '');
+}
+
+function createPackageJson(name, dir, type, isReact = false) {
+  const packageJson = {
+    name,
+    version: '0.0.0',
+    main: './cjs/index.js',
+    module: './esm/index.js',
+    'patternfly:src': './src/index.js', // will be used for jest resolver
+    sideEffects: false,
+    license: 'MIT',
+    files: ['./esm', './cjs'],
+    scripts: {},
+    publishConfig: {
+      access: 'public'
+    },
+    dependencies: {},
+    devDependencies: {},
+    peerDependencies: {}
+  };
+
+  if (isReact) {
+    packageJson.peerDependencies = {
+      'prop-types': '^15.6.0',
+      react: '^15.6.2 || ^16.2.0',
+      'react-dom': '^15.6.2 || ^16.2.0'
+    };
+    packageJson.devDependencies = {
+      'prop-types': '^15.6.1',
+      react: '^16.3.1',
+      'react-dom': '^16.3.1'
+    };
+  }
+
+  return fs.writeFile(
+    path.join(dir, 'package.json'),
+    JSON.stringify(packageJson, null, 2)
+  );
+}
+
+function createReadME(name, dir) {
+  return fs.writeFile(path.join(dir, 'README.md'), `# ${name}`);
+}
 
 (async () => {
   const answers = await inquirer.prompt([
@@ -31,6 +72,12 @@ const pathsByPackageType = {
       type: 'list',
       message: 'What type of package are your wanting to generate?',
       choices: Object.values(packageTypes)
+    },
+    {
+      name: 'isReact',
+      type: 'confirm',
+      message: 'Does this package export React Compoennts?',
+      default: true
     },
     {
       name: 'name',
@@ -49,9 +96,9 @@ const pathsByPackageType = {
           return 'A package name is required.';
         }
         const packages = PackageUtilities.getPackages(new Repository());
-        const matchingPkg = packages.find(pkg => {
-          return pkg.name.toLowerCase() === input.toLowerCase() + '-lerna';
-        });
+        const matchingPkg = packages.find(
+          pkg => pkg.name.toLowerCase() === input.toLowerCase()
+        );
         return (
           !matchingPkg ||
           `${input} already exists at ${path.relative(
@@ -68,60 +115,11 @@ const pathsByPackageType = {
     packageFolder
   );
   await createSrcDirectory(destinationDirectory);
-  await createPackageJson(answers.name, destinationDirectory, answers.type);
+  await createPackageJson(
+    answers.name,
+    destinationDirectory,
+    answers.type,
+    answers.isReact
+  );
+  await createReadME(answers.name, destinationDirectory);
 })();
-
-function createSrcDirectory(dir) {
-  return new Promise(resolve => {
-    mkdirp(path.join(dir, 'src'), () => {
-      resolve();
-    });
-  });
-}
-
-function createPackageJson(name, dir, type) {
-  const packageJson = {
-    name: name + '-lerna', //remove later
-    version: '0.0.0',
-    main: './dist/cjs/index.js',
-    module: './dist/cjs/index.js',
-    'patternfly:src': './src/index.js', //will be used for jest resolver
-    sideEffects: false,
-    license: 'MIT',
-    files: ['./dist'],
-    scripts: {},
-    publishConfig: {
-      access: 'public'
-    },
-    dependencies: {},
-    devDependencies: {},
-    peerDependencies: {}
-  };
-
-  switch (type) {
-    case packageTypes.component:
-    case packageTypes.pattern:
-    case packageTypes.layout:
-      packageJson.peerDependencies = {
-        'prop-types': '^15.6.0',
-        react: '^15.6.2 || ^16.2.0',
-        'react-dom': '^15.6.2 || ^16.2.0'
-      };
-      packageJson.devDependencies = {
-        'prop-types': '^15.6.1',
-        react: '^16.3.1',
-        'react-dom': '^16.3.1'
-      };
-      break;
-  }
-
-  return new Promise(resolve => {
-    fs.writeFile(
-      path.join(dir, 'package.json'),
-      JSON.stringify(packageJson, null, 2),
-      () => {
-        resolve();
-      }
-    );
-  });
-}

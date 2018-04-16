@@ -1,0 +1,28 @@
+{
+  "name": "@dm-lerna-poc/table",
+  "version": "0.0.0",
+  "main": "./cjs/index.js",
+  "module": "./esm/index.js",
+  "patternfly:src": "./src/index.js",
+  "sideEffects": false,
+  "license": "MIT",
+  "files": [
+    "./esm",
+    "./cjs"
+  ],
+  "scripts": {},
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "prop-types": "^15.6.1",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.6.0",
+    "react": "^15.6.2 || ^16.2.0",
+    "react-dom": "^15.6.2 || ^16.2.0"
+  }
+}

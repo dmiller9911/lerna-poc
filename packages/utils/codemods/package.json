@@ -1,16 +1,15 @@
 {
-  "name": "@dougmiller/patternfly-codemods-lerna",
-  "version": "0.1.1",
+  "name": "@dm-lerna-poc/codemods",
+  "version": "0.0.0",
   "main": "./dist/cjs/index.js",
-  "module": "./dist/cjs/index.js",
-  "patternfly:src": "./src/index.js",
   "sideEffects": false,
   "license": "MIT",
   "files": [
-    "./dist"
+    "./lib"
   ],
   "scripts": {},
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "devDependencies": {}
 }

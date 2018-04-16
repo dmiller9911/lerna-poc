@@ -9,7 +9,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-**Note:** Version bump only for package @dougmiller/patternfly-codemods-lerna
+**Note:** Version bump only for package @dm-lerna-poc/patternfly-codemods-lerna
 
 <a name="0.1.0"></a>
 # 0.1.0 (2018-04-05)
