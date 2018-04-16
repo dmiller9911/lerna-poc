@@ -1,6 +1,6 @@
 {
   "name": "@dm-lerna-poc/table",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "main": "./cjs/index.js",
   "module": "./esm/index.js",
   "patternfly:src": "./src/index.js",
@@ -14,7 +14,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {},
   "devDependencies": {
     "prop-types": "^15.6.1",
     "react": "^16.3.1",
