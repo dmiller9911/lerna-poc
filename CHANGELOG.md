@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="4.0.0"></a>
+# [4.0.0](https://github.com/dmiller9911/lerna-poc/compare/v2.1.1...v4.0.0) (2018-04-16)
+
+
+### Features
+
+* **ALl:** testing a breaking to align all versions again ([fc7e8a8](https://github.com/dmiller9911/lerna-poc/commit/fc7e8a8))
+* **Console:** added Console Component to test things ([52cf114](https://github.com/dmiller9911/lerna-poc/commit/52cf114))
+
+
+### BREAKING CHANGES
+
+* **Console:** Yes
+* **ALl:** New Packages and versions
+
+
+
+
 <a name="2.1.2"></a>
 ## [2.1.2](https://github.com/dmiller9911/lerna-poc/compare/v2.1.1...v2.1.2) (2018-04-16)
 
