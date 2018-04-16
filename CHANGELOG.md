@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="5.1.2"></a>
+## [5.1.2](https://github.com/dmiller9911/lerna-poc/compare/v5.1.1...v5.1.2) (2018-04-16)
+
+
+### Bug Fixes
+
+* **charts:** remove test code ([8a5e6c6](https://github.com/dmiller9911/lerna-poc/commit/8a5e6c6))
+
+
+
+
 <a name="5.1.1"></a>
 ## [5.1.1](https://github.com/dmiller9911/lerna-poc/compare/v5.1.0...v5.1.1) (2018-04-16)
 
