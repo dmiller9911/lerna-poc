@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="2.1.0"></a>
+# [2.1.0](https://github.com/dmiller9911/lerna-poc/compare/v2.0.0...v2.1.0) (2018-04-16)
+
+
+### Features
+
+* **Spinner:** added spinnger component to core ([28688f0](https://github.com/dmiller9911/lerna-poc/commit/28688f0))
+
+
+
+
 <a name="2.0.0"></a>
 # 2.0.0 (2018-04-16)
 
