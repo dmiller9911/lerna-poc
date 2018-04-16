@@ -6,6 +6,11 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
   exit 0
 fi
 
+if [ "$(node ./scripts/isPublishCommit)" != "false" ]; then
+  echo "Commit is Lerna, not releasing"
+  exit 0
+fi
+
 if [[ $TRAVIS_BRANCH == 'master' ]]; then
   yarn release:ci
 fi
