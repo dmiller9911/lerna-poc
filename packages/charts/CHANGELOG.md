@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="5.0.0"></a>
+# [5.0.0](https://github.com/dmiller9911/lerna-poc/compare/v4.0.0...v5.0.0) (2018-04-16)
+
+
+### Bug Fixes
+
+* **Chart:** testing chart ([1cd9f82](https://github.com/dmiller9911/lerna-poc/commit/1cd9f82))
+
+
+
+
 <a name="4.0.0"></a>
 # [4.0.0](https://github.com/dmiller9911/lerna-poc/compare/v2.1.1...v4.0.0) (2018-04-16)
 
