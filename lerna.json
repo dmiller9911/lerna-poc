@@ -5,7 +5,8 @@
   "version": "2.1.0",
   "command": {
     "publish": {
-      "message": "chore(release): publish"
+      "message": "chore(release): publish",
+      "conventionalCommits": true
     }
   }
 }
