@@ -11,8 +11,8 @@
     "clean": "yarn clean:build",
     "clean:build": "rm -rf packages/*/*/dist",
     "gen:package": "node ./scripts/package-gen && yarn bootstrap",
-    "release": "yarn build && lerna publish",
-    "release:ci": "yarn build && yarn travis-deploy-once \"lerna publish --yes\""
+    "release": "yarn build && lerna-semantic-release pre && lerna-semantic-release perform && lerna-semantic-release post",
+    "release:ci": "yarn build && yarn travis-deploy-once \"yarn release\""
   },
   "workspaces": [
     "packages/*",
@@ -31,6 +31,7 @@
     "enzyme": "^3.3.0",
     "inquirer": "^5.2.0",
     "lerna": "^2.9.0",
+    "lerna-semantic-release": "^9.1.0",
     "mkdirp": "^0.5.1",
     "prettier": "^1.11.1",
     "travis-deploy-once": "^4.4.1"

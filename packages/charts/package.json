@@ -1,6 +1,6 @@
 {
   "name": "@dm-lerna-poc/charts",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "main": "./cjs/index.js",
   "module": "./cjs/index.js",
   "patternfly:src": "./src/index.js",
