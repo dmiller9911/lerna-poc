@@ -34,7 +34,7 @@ Alert.propTypes = {
   /** callback when alert is dismissed  */
   onDismiss: PropTypes.func,
   /** the type of alert  */
-  type: PropTypes.oneOf([...ALERT_TYPES, ...DEPRECATED_ALERT_TYPES]),
+  type: PropTypes.oneOf(ALERT_TYPES),
   /** children nodes  */
   children: PropTypes.node
 };
