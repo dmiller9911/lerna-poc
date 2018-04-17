@@ -1,6 +1,6 @@
 {
   "name": "@dm-lerna-poc/core",
-  "version": "5.1.3",
+  "version": "5.1.4",
   "main": "./cjs/index.js",
   "module": "./esm/index.js",
   "patternfly:src": "./src/index.js",
