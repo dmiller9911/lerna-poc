@@ -12,7 +12,7 @@
     "clean:build": "rm -rf packages/*/*/dist",
     "gen:package": "node ./scripts/package-gen && yarn bootstrap",
     "release": "yarn build && lerna publish --conventional-commits",
-    "release:ci": "yarn build && yarn travis-deploy-once \"lerna publish --conventional-commits --yes\""
+    "release:ci": "yarn build && yarn travis-deploy-once \"node scripts/release\""
   },
   "workspaces": [
     "packages/*",
