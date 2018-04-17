@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="6.2.0"></a>
+# [6.2.0](https://github.com/dmiller9911/lerna-poc/compare/v6.1.1...v6.2.0) (2018-04-17)
+
+
+
+
+**Note:** Version bump only for package @dm-lerna-poc/console-lerna
+
 <a name="6.1.0"></a>
 # [6.1.0](https://github.com/dmiller9911/lerna-poc/compare/v6.0.1...v6.1.0) (2018-04-17)
 
