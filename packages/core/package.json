@@ -1,8 +1,8 @@
 {
   "name": "@dm-lerna-poc/core",
   "version": "5.1.1",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/cjs/index.js",
+  "main": "./cjs/index.js",
+  "module": "./esm/index.js",
   "patternfly:src": "./src/index.js",
   "sideEffects": false,
   "license": "MIT",
