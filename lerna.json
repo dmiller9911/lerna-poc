@@ -6,8 +6,7 @@
   "command": {
     "publish": {
       "message": "chore(release): publish",
-      "conventionalCommits": true,
-      "forcePublish": "*"
+      "conventionalCommits": true
     }
   }
 }
