@@ -25,16 +25,16 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.44",
     "@babel/preset-env": "^7.0.0-beta.44",
     "@babel/preset-react": "^7.0.0-beta.44",
-    "commitizen": "2.9.6",
+    "commitizen": "2.10.1",
     "cross-env": "^5.1.4",
     "cz-lerna-changelog": "^1.2.1",
     "enzyme": "^3.3.0",
-    "inquirer": "^5.2.0",
+    "inquirer": "^6.0.0",
     "lerna": "^2.9.0",
     "mkdirp": "^0.5.1",
     "nodegit": "^0.22.0",
     "prettier": "^1.11.1",
-    "travis-deploy-once": "^4.4.1"
+    "travis-deploy-once": "^5.0.1"
   },
   "config": {
     "commitizen": {
