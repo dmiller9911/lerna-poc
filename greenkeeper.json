@@ -1,0 +1,15 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "package.json",
+        "packages/charts/package.json",
+        "packages/console/package.json",
+        "packages/core/package.json",
+        "packages/table/package.json",
+        "packages/utils/codemods/package.json",
+        "packages/utils/eslint-config-patternfly/package.json"
+      ]
+    }
+  }
+}
