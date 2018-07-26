@@ -17,7 +17,7 @@
   "dependencies": {
     "patternfly": "^3.44.0",
     "react-c3js": "^0.1.20",
-    "recompose": "^0.26.0"
+    "recompose": "^0.27.1"
   },
   "devDependencies": {
     "enzyme": "^3.3.0",
